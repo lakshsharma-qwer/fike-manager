@@ -1,0 +1,86 @@
+#sidebar {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 6px 4px 12px 4px;
+  background: var(--surface);
+  min-width: 0;
+}
+.nav-sep {
+  height: 1px;
+  background: var(--divider);
+  margin: 6px 10px;
+}
+.nav-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  margin: 1px 0;
+  padding-right: 8px;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  font-size: 12px;
+}
+.compact .nav-node {
+  height: 24px;
+}
+.nav-node:hover {
+  background: var(--hover);
+}
+.nav-node.selected {
+  background: var(--selected-nav);
+}
+.nav-node.selected::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 16px;
+  margin-top: -8px;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--accent-fill);
+}
+.compact .nav-node.selected::before {
+  height: 12px;
+  margin-top: -6px;
+}
+.nav-node.drop-target {
+  background: var(--list-sel);
+}
+.nav-chev {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  color: var(--text-2);
+  flex: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+#sidebar:hover .nav-chev.has,
+.nav-chev.has.expanded {
+  opacity: 1;
+}
+.nav-chev svg {
+  transition: transform 0.1s;
+}
+.nav-chev.expanded svg {
+  transform: rotate(90deg);
+}
+.nav-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  flex: none;
+}
+.nav-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav-pin {
+  color: var(--text-3);
+  flex: none;
+  margin-left: 6px;
+}

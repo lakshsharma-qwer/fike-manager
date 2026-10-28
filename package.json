@@ -1,0 +1,67 @@
+{
+  "name": "explorer-mac",
+  "productName": "File Explorer",
+  "version": "1.0.0",
+  "description": "A Windows 11 File Explorer clone for macOS",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "env -u ELECTRON_RUN_AS_NODE electron .",
+    "dist": "env -u ELECTRON_RUN_AS_NODE electron-builder --mac dmg --x64 --arm64",
+    "icon": "env -u ELECTRON_RUN_AS_NODE electron build/render-icon.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3"
+  },
+  "author": "Laksh Sharma",
+  "build": {
+    "appId": "com.lakshsharma.fileexplorer",
+    "productName": "File Explorer",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.png",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "identity": "-",
+      "darkModeSupport": true,
+      "hardenedRuntime": false
+    },
+    "dmg": {
+      "title": "File Explorer",
+      "contents": [
+        {
+          "x": 140,
+          "y": 190,
+          "type": "file"
+        },
+        {
+          "x": 400,
+          "y": 190,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "window": {
+        "width": 540,
+        "height": 380
+      },
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    }
+  }
+}

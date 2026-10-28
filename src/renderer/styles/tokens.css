@@ -1,0 +1,198 @@
+/* Windows 11 (Fluent) design tokens — light and dark */
+:root {
+  color-scheme: light;
+  --font: "Segoe UI Variable Text", "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-display: "Segoe UI Variable Display", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --mica: #eef1f6;
+  --layer: #f9f9f9;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-2: #5d5d5d;
+  --text-3: #8b8b8b;
+  --text-disabled: #a0a0a0;
+  --stroke: #e5e5e5;
+  --stroke-2: #d6d6d6;
+  --divider: rgba(0, 0, 0, 0.08);
+
+  --hover: rgba(0, 0, 0, 0.04);
+  --pressed: rgba(0, 0, 0, 0.065);
+  --selected-nav: rgba(0, 0, 0, 0.055);
+
+  --list-hover: #e5f3ff;
+  --list-sel: #cce8ff;
+  --list-sel-hover: #c4e3fd;
+  --list-sel-border: #99d1ff;
+  --list-sel-inactive: #d9d9d9;
+  --list-cut: 0.5;
+
+  --accent: #005fb8;
+  --accent-fill: #0067c0;
+  --accent-fill-hover: #1975c5;
+  --accent-text-on: #ffffff;
+  --marquee-fill: rgba(0, 120, 215, 0.18);
+  --marquee-stroke: #0078d7;
+
+  --ctrl: #ffffff;
+  --ctrl-hover: #f9f9f9;
+  --ctrl-border: #e5e5e5;
+  --ctrl-border-bottom: #8a8a8a;
+
+  --menu-bg: rgba(249, 249, 249, 0.86);
+  --menu-solid: #f9f9f9;
+  --menu-border: rgba(0, 0, 0, 0.1);
+  --shadow-menu: 0 8px 16px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.1);
+  --shadow-dialog: 0 32px 64px rgba(0, 0, 0, 0.19), 0 2px 21px rgba(0, 0, 0, 0.15);
+
+  --tab-active: var(--layer);
+  --tab-hover: rgba(0, 0, 0, 0.04);
+
+  --progress: #06b025;
+  --progress-bg: #e6e6e6;
+  --drive-bar: #26a0da;
+  --drive-bar-full: #da2626;
+  --drive-bar-bg: #e6e6e6;
+
+  --close-hover: #c42b1c;
+  --danger: #c42b1c;
+
+  --classic-bg: #f0f0f0;
+  --classic-panel: #ffffff;
+  --classic-border: #adadad;
+  --classic-btn: #e1e1e1;
+  --classic-btn-hover: #e5f1fb;
+  --classic-btn-border: #adadad;
+
+  --radius: 4px;
+  --radius-lg: 8px;
+  --sidebar-w: 240px;
+  --pane-w: 320px;
+  --scrollbar: rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --mica: #1f2124;
+    --layer: #2b2b2b;
+    --surface: #191919;
+    --text: #ffffff;
+    --text-2: #c8c8c8;
+    --text-3: #9a9a9a;
+    --text-disabled: #6e6e6e;
+    --stroke: #333333;
+    --stroke-2: #3d3d3d;
+    --divider: rgba(255, 255, 255, 0.08);
+
+    --hover: rgba(255, 255, 255, 0.06);
+    --pressed: rgba(255, 255, 255, 0.04);
+    --selected-nav: rgba(255, 255, 255, 0.07);
+
+    --list-hover: rgba(255, 255, 255, 0.07);
+    --list-sel: rgba(255, 255, 255, 0.14);
+    --list-sel-hover: rgba(255, 255, 255, 0.18);
+    --list-sel-border: rgba(255, 255, 255, 0.3);
+    --list-sel-inactive: rgba(255, 255, 255, 0.1);
+
+    --accent: #4cc2ff;
+    --accent-fill: #4cc2ff;
+    --accent-fill-hover: #48b1e8;
+    --accent-text-on: #000000;
+    --marquee-fill: rgba(76, 194, 255, 0.18);
+    --marquee-stroke: #4cc2ff;
+
+    --ctrl: #2d2d2d;
+    --ctrl-hover: #323232;
+    --ctrl-border: #303030;
+    --ctrl-border-bottom: #9a9a9a;
+
+    --menu-bg: rgba(44, 44, 44, 0.9);
+    --menu-solid: #2c2c2c;
+    --menu-border: rgba(0, 0, 0, 0.4);
+    --shadow-menu: 0 8px 16px rgba(0, 0, 0, 0.26), 0 0 2px rgba(0, 0, 0, 0.4);
+    --shadow-dialog: 0 32px 64px rgba(0, 0, 0, 0.37), 0 2px 21px rgba(0, 0, 0, 0.37);
+
+    --tab-hover: rgba(255, 255, 255, 0.05);
+
+    --progress-bg: #3a3a3a;
+    --drive-bar-bg: #3a3a3a;
+
+    --classic-bg: #202020;
+    --classic-panel: #2b2b2b;
+    --classic-border: #4a4a4a;
+    --classic-btn: #333333;
+    --classic-btn-hover: #3d3d3d;
+    --classic-btn-border: #555555;
+    --scrollbar: rgba(255, 255, 255, 0.35);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--mica);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  cursor: default;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: default;
+}
+
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+  user-select: text;
+}
+
+svg {
+  display: block;
+  flex: none;
+}
+
+/* Thin Windows 11 style overlay scrollbars */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 8px;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  min-height: 40px;
+}
+::-webkit-scrollbar-thumb:hover {
+  border-width: 3px;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+body:not(.kbd) :focus {
+  outline: none;
+}
+.kbd :focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: -2px;
+  border-radius: var(--radius);
+}

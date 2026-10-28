@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' file:; img-src 'self' file: data: blob:; media-src 'self' file: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; frame-src file:; object-src file:" />
+    <title>File Explorer</title>
+    <link rel="stylesheet" href="styles/tokens.css" />
+    <link rel="stylesheet" href="styles/chrome.css" />
+    <link rel="stylesheet" href="styles/sidebar.css" />
+    <link rel="stylesheet" href="styles/fileview.css" />
+    <link rel="stylesheet" href="styles/pages.css" />
+    <link rel="stylesheet" href="styles/pane.css" />
+    <link rel="stylesheet" href="styles/menu.css" />
+    <link rel="stylesheet" href="styles/dialogs.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header id="titlebar">
+        <div id="tabstrip"></div>
+        <div class="drag-space"></div>
+        <div id="caption">
+          <button class="cap-btn" data-cap="minimize" aria-label="Minimize"></button>
+          <button class="cap-btn" data-cap="maximize" aria-label="Maximize"></button>
+          <button class="cap-btn cap-close" data-cap="close" aria-label="Close"></button>
+        </div>
+      </header>
+
+      <div id="toolbar-layer">
+        <div id="addressrow">
+          <div class="nav-buttons">
+            <button class="icon-btn" id="btn-back" data-tip="Back (Alt+Left Arrow)"></button>
+            <button class="icon-btn" id="btn-forward" data-tip="Forward (Alt+Right Arrow)"></button>
+            <button class="icon-btn" id="btn-up" data-tip="Up to parent folder (Alt+Up Arrow)"></button>
+            <button class="icon-btn" id="btn-refresh" data-tip="Refresh (F5)"></button>
+          </div>
+          <div id="address">
+            <div id="address-progress"></div>
+            <div id="breadcrumb"></div>
+            <input id="address-input" spellcheck="false" autocomplete="off" />
+            <button class="icon-btn small" id="btn-history" data-tip="Previous locations"></button>
+          </div>
+          <div id="search-splitter"></div>
+          <div id="search">
+            <input id="search-input" spellcheck="false" autocomplete="off" />
+            <span id="search-icon"></span>
+            <button class="icon-btn small" id="search-clear" data-tip="Clear"></button>
+          </div>
+        </div>
+        <div id="commandbar"></div>
+      </div>
+
+      <div id="main">
+        <nav id="sidebar" tabindex="-1"></nav>
+        <div class="splitter" id="sidebar-splitter"></div>
+        <section id="content">
+          <div id="viewport" tabindex="0">
+            <div id="canvas"></div>
+          </div>
+          <div id="page" tabindex="0"></div>
+        </section>
+        <div class="splitter" id="pane-splitter"></div>
+        <aside id="pane"></aside>
+      </div>
+
+      <footer id="statusbar">
+        <div id="status-text"></div>
+        <div id="status-views">
+          <button class="icon-btn tiny" id="status-details" data-tip="Displays information about each item in the window. (Ctrl+Shift+6)"></button>
+          <button class="icon-btn tiny" id="status-large" data-tip="Displays large thumbnails. (Ctrl+Shift+2)"></button>
+        </div>
+      </footer>
+    </div>
+    <div id="overlay-root"></div>
+    <div id="tooltip"></div>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

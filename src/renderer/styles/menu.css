@@ -1,0 +1,133 @@
+/* Windows 11 context menu / flyout */
+.menu {
+  position: fixed;
+  z-index: 900;
+  min-width: 220px;
+  max-width: 420px;
+  padding: 4px 0;
+  background: var(--menu-bg);
+  backdrop-filter: blur(30px) saturate(1.4);
+  border: 1px solid var(--menu-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-menu);
+  font-size: 12px;
+  outline: none;
+  animation: menu-in 0.18s cubic-bezier(0.1, 0.9, 0.2, 1);
+  transform-origin: top left;
+}
+.menu.up {
+  animation-name: menu-in-up;
+}
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes menu-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.menu-top {
+  display: flex;
+  gap: 2px;
+  padding: 2px 4px 4px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--divider);
+}
+.menu-top button {
+  width: 40px;
+  height: 36px;
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+}
+.menu-top button:hover:not(:disabled),
+.menu-top button.active {
+  background: var(--hover);
+}
+.menu-top button:disabled {
+  color: var(--text-disabled);
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin: 0 4px;
+  padding: 0 10px 0 10px;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  gap: 12px;
+}
+.menu-item.active:not(.disabled) {
+  background: var(--hover);
+}
+.menu-item.disabled {
+  color: var(--text-disabled);
+}
+.menu-item .mi-icon {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.menu-item .mi-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.menu-item .mi-key {
+  color: var(--text-2);
+  font-size: 11.5px;
+  margin-left: 24px;
+}
+.menu-item .mi-sub {
+  color: var(--text-2);
+  margin-right: -4px;
+}
+.menu-item .mi-check {
+  width: 16px;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.menu-sep {
+  height: 1px;
+  background: var(--divider);
+  margin: 4px 0;
+}
+.menu-header {
+  padding: 6px 14px 4px;
+  color: var(--text-2);
+  font-size: 11.5px;
+}
+.radio-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* address bar suggestions & breadcrumb dropdowns reuse .menu */
+.menu.scroll {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.menu.suggest {
+  animation: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+.menu-item b {
+  font-weight: 600;
+}

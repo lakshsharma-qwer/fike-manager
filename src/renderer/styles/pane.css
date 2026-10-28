@@ -1,0 +1,105 @@
+#pane {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+}
+#main:not(.with-pane) #pane {
+  display: none;
+}
+.pane-preview {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  overflow: hidden;
+}
+.pane-preview img,
+.pane-preview video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.pane-preview audio {
+  width: 100%;
+}
+.pane-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+.pane-preview pre {
+  align-self: stretch;
+  flex: 1;
+  margin: 0;
+  overflow: auto;
+  font: 12px/1.5 "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  user-select: text;
+  color: var(--text);
+}
+.pane-msg {
+  color: var(--text-2);
+  font-size: 13px;
+  text-align: center;
+}
+
+.pane-details {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 16px 24px;
+}
+.pd-thumb {
+  height: 180px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+.pd-thumb img {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  box-shadow: 0 0 0 1px var(--divider);
+}
+.pd-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  word-break: break-word;
+  margin-bottom: 12px;
+  user-select: text;
+}
+.pd-actions {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+.pd-actions .cmd {
+  border: 1px solid var(--ctrl-border);
+  background: var(--ctrl);
+}
+.pd-section {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 8px 0 8px;
+}
+.pd-props {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.pd-prop .k {
+  color: var(--text-2);
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+.pd-prop .v {
+  font-size: 12px;
+  word-break: break-word;
+  user-select: text;
+}
